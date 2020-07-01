@@ -1,0 +1,77 @@
+<div class="container pt-3">
+    <mdb-card cascade="true" wider="true">
+  
+      <!--Avatar-->
+      <div class="view view-cascade overlay waves-light" mdbWavesEffect>
+        <mdb-card-img img src="../../assets/img/scheduler.jpg" class="rounded-circle img-responsive center"></mdb-card-img>
+        <a><div class="mask rgba-white-slight"></div></a>
+      </div>
+      <!-- <div class="card-block"> -->
+        <mdb-card-body cascade="true" class="pb-0">
+        <br>
+        <div class="row auth-heading">
+          <div id="register-tab" class="col-6 text-center auth-tabs" (click)="registerTab()">Register</div>
+          <div id="login-tab" class="col-6 text-center auth-tabs active-tab" (click)="loginTab()">Login</div>
+        </div>
+        <br>
+        <span class="error" *ngIf="error">{{ error }}</span>
+        <!--Body-->
+        <form [formGroup]="registerForm" (ngSubmit)="onRegSubmit()">
+          <div class="register" *ngIf="registerPage">
+            <div class="md-form">
+              <mdb-icon fas icon="user" class="prefix"></mdb-icon>
+              <input mdbInput id="regname" formControlName="regname" type="text"  class="form-control" placeholder="Your Name">
+            </div>
+            <div class="md-form">
+              <mdb-icon fas icon="envelope" class="prefix"></mdb-icon>
+              <input mdbInput type="text" id="regemail" formControlName="regemail" class="form-control" placeholder="Your Email">
+            </div>
+            <div class="md-form">
+              <mdb-icon fas icon="lock" class="prefix"></mdb-icon>
+              <input mdbInput type="password" id="regpassword" formControlName="regpassword" class="form-control" placeholder="Your password">
+            </div>
+            <div class="md-form">
+              <mdb-icon fas icon="lock" class="prefix"></mdb-icon>
+              <input mdbInput type="password" id="reppassword" formControlName="reppassword" class="form-control" placeholder="Repeat password">
+            </div>
+            <div class="text-center">
+              <button class="btn register-btn" type="submit" [disabled]="!registerForm.valid">Sign up</button>
+            </div>
+            <br>
+            <div class="text-center">
+              <h5 class="font-weight-bold">OR</h5>
+            </div>
+            <div class="text-center">
+              <button mdbBtn type="button" (click)="loginfb()" class="btn btn-indigo"><mdb-icon fab icon="facebook-f"> </mdb-icon> Facebook</button>
+            </div>
+            <br>
+          </div>
+        </form>
+        <div class="login" *ngIf="loginPage">
+          <!--Body-->
+          <form [formGroup]="loginForm" (ngSubmit)="onLogSubmit()">
+            <div class="md-form">
+              <mdb-icon fas icon="envelope" class="prefix"></mdb-icon>
+              <input mdbInput type="text" id="logemail" formControlName="logemail" class="form-control" placeholder="Your email">
+            </div>
+            <div class="md-form">
+              <mdb-icon fas icon="lock" class="prefix"></mdb-icon>
+              <input mdbInput type="password" id="logpassword" formControlName="logpassword" class="form-control" placeholder="Your password">
+            </div>
+            <div class="text-center">
+              <button class="btn login-btn" type="submit" [disabled]="!loginForm.valid">Login</button>
+            </div>
+            <br>
+            <div class="text-center">
+              <h5 class="font-weight-bold">OR</h5>
+            </div>
+          </form>
+          <div class="text-center">
+            <button mdbBtn type="button" (click)="loginfb()" class="btn btn-indigo"><mdb-icon fab icon="facebook-f"> </mdb-icon> Facebook</button>
+          </div>
+          <br>
+        </div>
+    </mdb-card-body>
+
+    </mdb-card>
+</div>
